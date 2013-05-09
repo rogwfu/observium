@@ -31,7 +31,7 @@
 end
 
 # Make sure directories are present
-directory node[:observium][:log_dir] do
+directory node[:observium][:install_dir] do
   owner "root"
   mode "0755"
   action :create
