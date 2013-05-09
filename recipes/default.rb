@@ -45,3 +45,14 @@ subversion "Observium Source" do
   destination "#{node[:observium][:install_dir]}/observium"
 #FIXME:  notifies??
 end
+
+# Configure Observium's config.php
+template "config.php" do
+  path "#{node[:observium][:install_dir]}/observium/config.php"
+  source "config.php.erb"
+  owner "root"
+  group "root"
+  mode "0660"
+#  notifies :restart, "service[ircd-hybrid]", :immediately
+end
+

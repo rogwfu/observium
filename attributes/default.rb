@@ -24,3 +24,11 @@
 #
 default[:observium][:install_dir] = "/opt/observium"
 default[:observium][:scm_source] = "http://www.observium.org/svn/observer/trunk"
+
+# Observium config.php defaults
+default[:observium][:db_host] = "localhost"
+default[:observium][:db_user] = "USERNAME"
+default[:observium][:db_pass] = "PASSWORD"
+default[:observium][:db_name] = "observium"
+default[:observium][:snmp_community] = "public"
+default[:observium][:auth_mechanism] = "mysql"

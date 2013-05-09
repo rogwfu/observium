@@ -1,0 +1,24 @@
+<?php
+
+## Have a look in includes/defaults.inc.php for examples of settings you can set here. DO NOT EDIT defaults.inc.php!
+
+// Database config
+$config['db_host'] = "<%= node['observium']['db_host'] %>";
+$config['db_user'] = "<%= node['observium']['db_user'] %>";
+$config['db_pass'] = "<%= node['observium']['db_pass'] %>";
+$config['db_name'] = "<%= node['observium']['db_name'] %>";
+
+// Location
+$config['install_dir']  = "<%= node[:observium][:install_dir] %>";
+
+// Thie should *only* be set if you want to *force* a particular hostname/port
+// It will prevent the web interface being usable form any other hostname
+#$config['base_url']        = "http://observium.company.com";
+
+// Default community list to use when adding/discovering
+$config['snmp']['community'] = array("<%= node[:observium][:snmp_community] %>");
+
+// Authentication Model
+$config['auth_mechanism'] = "<%= node[:observium][:auth_mechanism] %>";    // default, other options: ldap, http-auth, please see documentation for config help
+
+// End config.php
