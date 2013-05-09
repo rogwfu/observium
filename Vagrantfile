@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
-  config.vm.hostname = "observium-berkshelf"
+  config.vm.hostname = "observium"
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "Berkshelf-CentOS-6.3-x86_64-minimal"
@@ -41,43 +41,27 @@ Vagrant.configure("2") do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-  # config.vm.provider :virtualbox do |vb|
-  #   # Don't boot with headless mode
-  #   vb.gui = true
-  #
-  #   # Use VBoxManage to customize the VM. For example to change memory:
-  #   vb.customize ["modifyvm", :id, "--memory", "1024"]
-  # end
-  #
   # View the documentation for the provider you're using for more
+  config.vm.provider :vmware_fusion do |vmFusion|
+      vmFusion.gui = false
+      vmFusion.vmx['memsize'] = "2048"
+  end
+
   # information on available options.
 
   config.ssh.max_tries = 40
   config.ssh.timeout   = 120
 
-  # The path to the Berksfile to use with Vagrant Berkshelf
-  # config.berkshelf.berksfile_path = "./Berksfile"
-
   # Enabling the Berkshelf plugin. To enable this globally, add this configuration
   # option to your ~/.vagrant.d/Vagrantfile file
   config.berkshelf.enabled = true
 
-  # An array of symbols representing groups of cookbook described in the Vagrantfile
-  # to exclusively install and copy to Vagrant's shelf.
-  # config.berkshelf.only = []
-
-  # An array of symbols representing groups of cookbook described in the Vagrantfile
-  # to skip installing and copying to Vagrant's shelf.
-  # config.berkshelf.except = []
+  # The path to the Berksfile to use with Vagrant Berkshelf
+  config.berkshelf.berksfile_path = "./Berksfile"
 
   config.vm.provision :chef_solo do |chef|
     chef.json = {
-      :mysql => {
-        :server_root_password => 'rootpass',
-        :server_debian_password => 'debpass',
-        :server_repl_password => 'replpass'
       }
-    }
 
     chef.run_list = [
         "recipe[minitest-handler::default]",
