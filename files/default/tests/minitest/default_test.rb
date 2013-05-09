@@ -6,7 +6,7 @@ describe 'observium::default' do
 
   # Check creation of directories
   it "creates observium directory" do
-    directory(node["observium"]["log_dir"]).must_exist
+    directory(node["observium"]["install_dir"]).must_exist
   end
 
   # Check installation of dependent packages
