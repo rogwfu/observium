@@ -15,4 +15,9 @@ describe 'observium::default' do
       package("#{pkg}").must_be_installed()
     end
   end
+
+  # Ensure the source code is checked out 
+  it "checks out the Observium source code" do
+    directory("#{node["observium"]["install_dir"]}/observium").must_exist
+  end
 end
