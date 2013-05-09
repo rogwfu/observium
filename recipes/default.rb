@@ -30,9 +30,9 @@
   end
 end
 
- Make sure directories are present
+# Make sure directories are present
 directory node[:observium][:log_dir] do
-  owner "irc"
+  owner "root"
   mode "0755"
   action :create
   recursive true 
