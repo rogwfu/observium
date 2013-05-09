@@ -1,6 +1,5 @@
 #
 # Cookbook Name:: observium
-# Recipe:: default
 #
 # Copyright (C) 2013 Roger Seagle
 # 
@@ -23,17 +22,4 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
-# Installed required packages
-%w{libapache2-mod-php5 php5-cli php5-mysql php5-gd php5-snmp php-pear snmp graphviz subversion mysql-server mysql-client rrdtool fping imagemagick whois mtr-tiny nmap ipmitool}.each do |pkg|
-  package pkg do
-    action :install
-  end
-end
-
- Make sure directories are present
-directory node[:observium][:log_dir] do
-  owner "irc"
-  mode "0755"
-  action :create
-  recursive true 
-end
+default[:observium][:install_dir] = "/opt/observium"
