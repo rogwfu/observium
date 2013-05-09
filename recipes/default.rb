@@ -37,3 +37,11 @@ directory node[:observium][:install_dir] do
   action :create
   recursive true 
 end
+
+# Checkout Observium source code
+subversion "Observium Source" do
+  repository node[:observium][:scm_source]
+  revision "HEAD"
+  destination "#{node[:observium][:install_dir]}/observium"
+#FIXME:  notifies??
+end

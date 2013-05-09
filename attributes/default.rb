@@ -23,3 +23,4 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 default[:observium][:install_dir] = "/opt/observium"
+default[:observium][:scm_source] = "http://www.observium.org/svn/observer/trunk"
