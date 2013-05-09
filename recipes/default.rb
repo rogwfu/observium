@@ -24,7 +24,7 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 # Installed required packages
-%w{libapache2-mod-php5 php5-cli php5-mysql php5-gd php5-snmp php-pear snmp graphviz subversion mysql-server mysql-client rrdtool fping imagemagick whois mtr-tiny nmap ipmitool}.each do |pkg|
+%w{lsnmp graphviz subversion rrdtool fping imagemagick whois mtr-tiny nmap ipmitool}.each do |pkg|
   package pkg do
     action :install
   end
